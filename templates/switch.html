@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+<!-- {% block title %} Baş sahypa {% endblock %}  -->
+{% load static %} {% block content %}
+<style>
+   #file {
+    position: absolute;
+    left: 120px;
+    top: 120px;
+    display: none;
+  }
+</style>
+
+<div style="background: rgb(42, 91, 145); height: 100px"></div>
+<main id="main" style="min-height: 700px">
+  <h1 class="text-center mt-4">Switch simulýator</h1>
+  <hr>
+
+<strong></strong>
+
+  <div class="container mt-5">
+    <table>
+      <tr>
+        <td></td>
+        <td >
+          <p class="text-center"><b>Ulanyjy2</b></p>
+          <img src="{% static 'assets/img/simulator/comp.png' %}" style="margin-left: 250px;"  alt="" />
+          <div class="d-flex mt-3">
+            <input type="text" id="text2" class="form-control" readonly style="width: 200px;margin-left: 250px;"/>
+            <button class="btn btn-success p-2 mx-2">Send</button>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+
+       <tr>
+        <td></td>
+        <td style="width: 100%">
+          <div
+            style="
+              width: 1%;
+              background: black;
+              height: 200px;
+              margin-left: 375px;
+              margin-bottom: -100px; 
+            "></div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <p class="text-center"><b>Ulanyjy1</b></p>
+          <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
+          <img
+            id="file"
+            src="{% static 'assets/img/simulator/file.png' %}"
+            alt="" />
+
+          <div class="d-flex mt-3">
+            <input type="text" id="text1" class="form-control" />
+            <button class="btn btn-success p-2 mx-2" onclick="sendmessage()">
+              Ugrat
+            </button>
+          </div>
+        </td>
+        <style>
+          #file3{
+            position: absolute;
+            margin-left: 17%;
+            margin-top: -80px;
+          }
+          #hub{
+            position: absolute;
+            margin-left: 24%;
+            margin-top: -125px;
+            font-size: 50px;
+            color: red;
+            z-index: 2;
+          }
+        </style>
+
+        <td style="width: 100%">
+         
+          <div
+            style="
+              width: 100%;
+              background: black;
+              height: 1px;
+              margin-top: 75px;
+            "></div>
+             <p class="text-center" id="hub"><b>HUB</b></p>
+            <img
+              id="file3"
+              src="{% static 'assets/img/simulator/hub.png' %}"
+              alt="" 
+              width="300"/>
+        </td>
+        <td>
+          <p class="text-center"><b>Ulanyjy3</b></p>
+          <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
+          <div class="d-flex mt-3">
+            <input type="text" id="text2" class="form-control" readonly />
+            <button class="btn btn-success p-2 mx-2">Send</button>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td style="width: 100%">
+          <div
+            style="
+              width: 1%;
+              background: black;
+              height: 200px;
+              margin-left: 375px;
+            "></div>
+        </td>
+        <td></td>
+      </tr>
+
+
+
+      <tr>
+        <td></td>
+        <td >
+          <p class="text-center"><b>Ulanyjy4</b></p>
+          <img src="{% static 'assets/img/simulator/comp.png' %}" style="margin-left: 250px;"  alt="" />
+          <div class="d-flex mt-3">
+            <input type="text" id="text2" class="form-control" readonly style="width: 200px;margin-left: 250px;"/>
+            <button class="btn btn-success p-2 mx-2">Send</button>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <div class="container my-5">
+    <div class="container mb-3">
+      <button
+        class="btn btn-success"
+        data-bs-toggle="collapse"
+        data-bs-target="#gorag">
+        Hüjümi amala aşyrmagyň usullary
+      </button>
+
+      <div id="gorag" class="collapse ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, illo
+        vitae, quasi totam dolorum odit reprehenderit deleniti sit facilis
+        aperiam vero voluptate corrupti excepturi voluptatum minus vel.
+        Mollitia, tenetur odio?
+      </div>
+    </div>
+ 
+
+  <div class="container mb-5 ">
+    <button
+      class="btn btn-success"
+      data-bs-toggle="collapse"
+      data-bs-target="#hujum">
+      Hüjümden goranmagyň usullary
+    </button>
+
+    <div id="hujum" class="collapse">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, illo
+      vitae, quasi totam dolorum odit reprehenderit deleniti sit facilis
+      aperiam vero voluptate corrupti excepturi voluptatum minus vel.
+      Mollitia, tenetur odio?
+    </div>
+  </div>
+</div>
+</div>
+</main>
+
+<script>
+  function sendmessage() {
+    var text1 = document.getElementById("text1").value;
+    var file = document.getElementById("file");
+    var file1 = document.getElementById("file1");
+    var file2 = document.getElementById("file2");
+    var text2 = document.getElementById("text2");
+    var text3 = document.getElementById("text3");
+    text2.value = "";
+    text3.value = "";
+    var sifr = document.querySelector('input[name="sifr"]:checked');
+
+    let sifrlenen = "";
+    if (sifr.value == "https") {
+      sifrlenen = btoa(text1);
+      console.log(text1);
+    } else {
+      sifrlenen = text1;
+    }
+    file.style.display = "inline";
+
+    var initialLeft = parseInt(file.style.right) || 0;
+    var targetLeft = parseInt(text2.style.left) || 0;
+    var targetLeft = 1000;
+    initialLeft = 230;
+    var duration = 3000;
+    var startTime = null;
+    yokary = 0;
+
+    function animate(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = timestamp - startTime;
+      var percentage = Math.min(progress / duration, 1);
+
+      var newPosition = initialLeft + (targetLeft - initialLeft) * percentage;
+      if (newPosition >= 555) {
+        file2.style.display = "inline-block";
+        file2.classList.add("animated-file");
+      }
+
+      newPosition = parseInt(newPosition);
+
+      file.style.left = newPosition + "px";
+
+      if (percentage < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        text2.value = text1;
+        text3.value = sifrlenen;
+        file.style.left = newPosition + "px";
+        file.style.display = "none";
+        file2.style.display = "none";
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+</script>
+
+<hr />
+<!-- End #main -->
+
+{% endblock %}

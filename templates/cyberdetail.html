@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+<!-- {% block title %} Baş sahypa {% endblock %}  -->
+{% load static %} {% block content %}
+
+<main id="main">
+  <!-- ======= Single Blog Section ======= -->
+  <section class="hero-section inner-page">
+    <div class="wave">
+      <svg
+        width="1920px"
+        height="265px"
+        viewBox="0 0 1920 265"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          id="Page-1"
+          stroke="none"
+          stroke-width="1"
+          fill="none"
+          fill-rule="evenodd"
+        >
+          <g
+            id="Apple-TV"
+            transform="translate(0.000000, -402.000000)"
+            fill="#FFFFFF"
+          >
+            <path
+              d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,667 L1017.15166,667 L0,667 L0,439.134243 Z"
+              id="Path"
+            ></path>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="row justify-content-center">
+            <div class="col-md-10 text-center hero-text">
+              <h1 data-aos="fade-up" data-aos-delay="">
+                <span class="text-capitalize">{{cyber_detail.name}}</span> barada giňişleýin maglumat
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="site-section mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 blog-content">
+          <div class="row mb-5">
+            <div class="col-md-11">
+              <img
+                src="{{cyber_detail.img.url}}"
+                class="img-fluid border"
+                style="width: 100%"
+              />
+            </div>
+          </div>
+
+          <p>{{cyber_detail.context|safe }}</p>
+
+          <div class="pt-5">
+            <div class="comment-form-wrap pt-5">
+              <h3 class="mb-5">Kommentariýa galdyrmak</h3>
+              <form action="#" class="">
+                <div class="form-group">
+                  <label for="name">Adyňyz</label>
+                  <input type="text" class="form-control" id="name" />
+                </div>
+                <div class="form-group mt-3">
+                  <label for="email">Email hasabyňyz</label>
+                  <input type="email" class="form-control" id="email" />
+                </div>
+                <div class="form-group mt-3">
+                  <label for="website">Title</label>
+                  <input type="url" class="form-control" id="website" />
+                </div>
+
+                <div class="form-group mt-3">
+                  <label for="message">Habar</label>
+                  <textarea
+                    name=""
+                    id="message"
+                    cols="30"
+                    rows="50"
+                    class="form-control"
+                  ></textarea>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="submit" value="Ugrat" class="btn btn-primary" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 sidebar">
+          <div class="sidebar-box">
+            <form action="#" class="search-form">
+              <div class="form-group">
+                <span class="icon fa fa-search"></span>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Gözleg..."
+                />
+              </div>
+            </form>
+          </div>
+          <div class="sidebar-box">
+            <div class="categories">
+              <h3><b>Bölümdäki beýleki maglumatlar</b></h3>
+              {% for cyberattack in cyberattacks %}
+              <li>
+                <a href="{% url 'cyber_detail' category_id cyberattack.id %}">{{cyberattack.name}} </a>
+              </li>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<hr color="black" />
+<!-- End #main -->
+{% endblock %}

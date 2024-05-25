@@ -1,0 +1,10 @@
+python -m venv env     wirtual gursaw doret
+
+env\Scripts\activate   isletmek ucin
+
+cd cybersimulator
+
+pip install -r requirements.txt     gerekli paketleri gurnamak ucin
+
+python manage.py runserver   programmany ise goybermek ucin
+

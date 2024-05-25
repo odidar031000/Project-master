@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+<!-- {% block title %} Baş sahypa {% endblock %}  -->
+{% load static %} {% block content %}
+<style>
+  #file {
+    position: absolute;
+    left: 120px;
+    top: 120px;
+    display: none;
+  }
+  .animated-file {
+    display: none;
+    position: relative;
+    animation-name: slideDown;
+    animation-duration: 3s;
+  }
+
+  @keyframes slideDown {
+    from {
+      top: 75px;
+    }
+    to {
+      top: 500px;
+    }
+  }
+</style>
+
+<div style="background: rgb(42, 91, 145); height: 100px"></div>
+<main id="main" style="min-height: 700px">
+  <h1 class="text-center mt-4">Mitm simulýator</h1>
+  <hr>
+
+  <div class="container border-bottom">
+    <label for="http" class="m-2">HTTP</label>
+    <input type="radio" value="http" id="http" checked name="sifr" />
+    <label for="https" class="m-2">HTTPS</label
+    ><input type="radio" id="https" value="https" name="sifr" />
+  </div>
+
+  <div class="container mt-5">
+    <table>
+      <tr>
+        <td>
+          <p class="text-center"><b>Ulanyjy1</b></p>
+          <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
+          <img
+            id="file"
+            src="{% static 'assets/img/simulator/file.png' %}"
+            alt="" />
+
+          <div class="d-flex mt-3">
+            <input type="text" id="text1" class="form-control" />
+            <button class="btn btn-success p-2 mx-2" onclick="sendmessage()">
+              Ugrat
+            </button>
+          </div>
+        </td>
+        <style>
+          #file2 {
+            display: none;
+            position: absolute;
+            margin-left: 26%;
+            margin-top: 40px;
+          }
+        </style>
+
+        <td style="width: 100%">
+          <img
+            id="file2"
+            src="{% static 'assets/img/simulator/file.png' %}"
+            alt="" />
+          <div
+            style="
+              width: 100%;
+              background: black;
+              height: 1px;
+              margin-top: 75px;
+            "></div>
+        </td>
+        <td>
+          <p class="text-center"><b>Ulanyjy2</b></p>
+          <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
+          <div class="d-flex mt-3">
+            <input type="text" id="text2" class="form-control" readonly />
+            <button class="btn btn-success p-2 mx-2">Send</button>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td style="width: 100%">
+          <div
+            style="
+              width: 1%;
+              background: black;
+              height: 200px;
+              margin-left: 375px;
+            "></div>
+        </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td style="display: flex; justify-content: center; flex-wrap: wrap">
+          <p class="text-center" style="width: 100%"><b>Hacker</b></p>
+          <img
+            src="{% static 'assets/img/simulator/hacker.png' %}"
+            alt="" /><br />
+          <div
+            class="d-flex mt-3"
+            style="width: 100%; display: flex; justify-content: center">
+            <input
+              type="text"
+              id="text3"
+              class="form-control"
+              readonly
+              style="width: 30%" />
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <div class="container my-5">
+    <div class="container mb-3">
+      <button
+        class="btn btn-success"
+        data-bs-toggle="collapse"
+        data-bs-target="#gorag">
+        Hüjümi amala aşyrmagyň usullary
+      </button>
+
+      <div id="gorag" class="collapse ">
+        Orta-ortadaky hüjümler (MITM) - hüjümçilere iki nyşanyň arasyndaky aragatnaşygy 
+        diňlemäge mümkinçilik berýän kiberhowpsuzlyk hüjüminiň umumy görnüşidir . 
+        Hüjüm, kanuny taýdan aragatnaşyk saklaýan iki adamyň arasynda bolup, 
+        hüjümçiniň adatça diňläp bilmejek gepleşiklerini “diňlemegine” mümkinçilik döredýär, 
+        şonuň üçin “ortadaky adam” adyny alýar.Hüjümçiler paketleri pes derejede barlamak üçin 
+        paket almak gurallaryny ulanýarlar. Gözegçilige ýa-da tertipsiz tertibe salmaga rugsat 
+        berlen ýörite simsiz enjamlary ulanmak, hüjümçä beýleki öý eýelerine ugrukdyrylan paketler 
+        ýaly görmek üçin niýetlenmedik paketleri görmäge mümkinçilik berýär.
+      </div>
+    </div>
+ 
+
+  <div class="container mb-5 ">
+    <button
+      class="btn btn-success"
+      data-bs-toggle="collapse"
+      data-bs-target="#hujum">
+      Hüjümden goranmagyň usullary
+    </button>
+
+    <div id="hujum" class="collapse">
+      MitM hüjümleriniň öňüni almak: MitM hüjümleriniň öňüni almak üçin howpsuzlyk çäreleriniň utgaşmasyny durmuşa geçiriň:
+
+1.Şifrlemek protokollary: Tranzitde maglumatlary goramak üçin SSL / TLS ýa-da IPSec ýaly güýçli şifrlemek protokollaryny durmuşa geçiriň. Şifrlemek, saklan halatynda-da maglumatlaryň gizlin we okalmazlygyny üpjün edýär.
+2.Hakyky tanamak usullary: Köp faktorly tanamak we güýçli parollar ýaly güýçli tanamak usullaryny kabul ediň. Köp faktorly tanamaklyk, şahsyýeti barlamak üçin goşmaça gatlak goşýar , hüjümçilere rugsatsyz girmegi kynlaşdyrýar.
+3.Programma gorag diwarlary: Şübheli işleri ýüze çykarmak we blokirlemek üçin programma diwarlaryny ýerleşdiriň. Bu gorag diwarlary, MitM hüjümçileri tarapyndan birugsat girilmeginiň we maglumatlaryň manipulýasiýasynyň öňüni alyp biler.
+4.Tor trafigine gözegçilik: Adaty bolmadyk ýa-da zyýanly hereketleriň alamatlary üçin tor traffigine yzygiderli gözegçilik ediň. Bu işeňňir çemeleşme, MitM howplaryny ir ýüze çykarmaga we azaltmaga mümkinçilik berýär.
+5.Howpsuz protokollar: Uzakdaky ulgamlara ygtybarly girmek üçin SSH we SFTP ýaly ygtybarly aragatnaşyk protokollaryny ulanyň. Bu teswirnamalar, MitM hüjümleriniň gowşaklygyny peseldip, umumy howpsuzlyk ýagdaýyny ýokarlandyrýar.
+6.Parolyň yzygiderli täzelenmeleri: Giriş dolandyryşlaryny güýçlendirmek üçin yzygiderli parol täzelenmelerini höweslendiriň. Parollara wagtal-wagtal üýtgeşmeler, MitM hüjümi ýüze çykan halatynda, şahsyýet maglumatlarynyň täsirini çäklendirip biler.
+7.Wakalara jogap meýilnamasy: Wakalara garşy meýilnama düzüň we yzygiderli täzeläň. Bu meýilnama, MitM hüjümi ýüze çykan halatynda edilmeli çäreleri görkezmeli, bolup biljek zyýany azaltmak üçin çalt we utgaşdyrylan jogap bermegi üpjün etmeli.
+8.Köp faktorly tanamaklyk: Adaty ulanyjy atlaryndan we parollaryndan başga goşmaça howpsuzlyk gatlagyny goşmak üçin köp faktorly tassyklamany güýçlendiriň .
+9.Toparlaýyn taýýarlyk: Toparlara MitM hüjümlerini tanamagy we täsirli jogap bermegi öwrediň. Ulanyjylaryň arasynda habarlylygy döretmek adam howpsuzlygynyň elementini güýçlendirýär.
+10.Öňdebaryjy öňüni alyş gurallaryny gözden geçiriň: Şahsyýeti barlamak we tassyklamak üçin Udentify we anomaliýany anyklamak üçin aiReflex ýaly ösen gurallary öwreniň. Bu gurallar, MitM hüjümlerinden güýçli goragy üpjün etmek üçin biometrik maglumatlary we köp faktorly tanamaklygy ulanýar.
+    </div>
+  </div>
+</div>
+</div>
+</main>
+
+<script>
+  function sendmessage() {
+    var text1 = document.getElementById("text1").value;
+    var file = document.getElementById("file");
+    var file1 = document.getElementById("file1");
+    var file2 = document.getElementById("file2");
+    var text2 = document.getElementById("text2");
+    var text3 = document.getElementById("text3");
+    text2.value = "";
+    text3.value = "";
+    var sifr = document.querySelector('input[name="sifr"]:checked');
+
+    let sifrlenen = "";
+    if (sifr.value == "https") {
+      sifrlenen = btoa(text1);
+      console.log(text1);
+    } else {
+      sifrlenen = text1;
+    }
+    file.style.display = "inline";
+
+    var initialLeft = parseInt(file.style.right) || 0;
+    var targetLeft = parseInt(text2.style.left) || 0;
+    var targetLeft = 1000;
+    initialLeft = 230;
+    var duration = 3000;
+    var startTime = null;
+    yokary = 0;
+
+    function animate(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = timestamp - startTime;
+      var percentage = Math.min(progress / duration, 1);
+
+      var newPosition = initialLeft + (targetLeft - initialLeft) * percentage;
+      if (newPosition >= 555) {
+        file2.style.display = "inline-block";
+        file2.classList.add("animated-file");
+      }
+
+      newPosition = parseInt(newPosition);
+
+      file.style.left = newPosition + "px";
+
+      if (percentage < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        text2.value = text1;
+        text3.value = sifrlenen;
+        file.style.left = newPosition + "px";
+        file.style.display = "none";
+        file2.style.display = "none";
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+</script>
+
+<hr />
+<!-- End #main -->
+
+{% endblock %}

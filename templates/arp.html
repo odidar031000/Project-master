@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+<!-- {% block title %} Baş sahypa {% endblock %}  -->
+{% load static %} {% block content %}
+<style>
+  #file {
+    position: absolute;
+    left: 120px;
+    top: 120px;
+    display: none;
+  }
+  .animated-file {
+    display: none;
+    position: relative;
+    animation-name: slideDown;
+    animation-duration: 3s;
+  }
+
+  @keyframes slideDown {
+    from {
+      top: 75px;
+    }
+    to {
+      top: 500px;
+    }
+  }
+</style>
+
+<div style="background: rgb(42, 91, 145); height: 100px"></div>
+<main id="main" style="min-height: 700px">
+  <h1 class="text-center mt-4">Mitm simulýator</h1>
+
+  <div class="container">
+    <label for="http" class="m-2">HTTP</label>
+    <input type="radio" value="http" id="http" checked name="sifr" />
+    <label for="https" class="m-2">HTTPS</label
+    ><input type="radio" id="https" value="https" name="sifr" />
+  </div>
+
+  <div class="container mt-5">
+    <table>
+      <tr>
+        <td>
+          <p class="text-center"><b>Ulanyjy1</b></p>
+          <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
+          <img
+            id="file"
+            src="{% static 'assets/img/simulator/file.png' %}"
+            alt="" />
+
+          <div class="d-flex mt-3">
+            <input type="text" id="text1" class="form-control" />
+            <button class="btn btn-success p-2 mx-2" onclick="sendmessage()">
+              Ugrat
+            </button>
+          </div>
+        </td>
+        <style>
+          #file2 {
+            display: none;
+            position: absolute;
+            margin-left: 26%;
+            margin-top: 40px;
+          }
+        </style>
+
+        <td style="width: 100%">
+          <img
+            id="file2"
+            src="{% static 'assets/img/simulator/file.png' %}"
+            alt="" />
+          <div
+            style="
+              width: 100%;
+              background: black;
+              height: 1px;
+              margin-top: 75px;
+            "></div>
+        </td>
+        <td>
+          <p class="text-center"><b>Ulanyjy2</b></p>
+          <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
+          <div class="d-flex mt-3">
+            <input type="text" id="text2" class="form-control" readonly />
+            <button class="btn btn-success p-2 mx-2">Send</button>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td style="width: 100%">
+          <div
+            style="
+              width: 1%;
+              background: black;
+              height: 200px;
+              margin-left: 375px;
+            "></div>
+        </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td style="display: flex; justify-content: center; flex-wrap: wrap">
+          <p class="text-center" style="width: 100%"><b>Hacker</b></p>
+          <img
+            src="{% static 'assets/img/simulator/hacker.png' %}"
+            alt="" /><br />
+          <div
+            class="d-flex mt-3"
+            style="width: 100%; display: flex; justify-content: center">
+            <input
+              type="text"
+              id="text3"
+              class="form-control"
+              readonly
+              style="width: 30%" />
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <div class="container mb-2">
+    <div class="container mb-3">
+      <button
+        class="btn btn-success"
+        data-bs-toggle="collapse"
+        data-bs-target="#gorag">
+        Hüjümi amala aşyrmagyň usullary
+      </button>
+
+      <div id="gorag" class="collapse ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, illo
+        vitae, quasi totam dolorum odit reprehenderit deleniti sit facilis
+        aperiam vero voluptate corrupti excepturi voluptatum minus vel.
+        Mollitia, tenetur odio?
+      </div>
+    </div>
+ 
+
+  <div class="container mb-5">
+    <button
+      class="btn btn-success"
+      data-bs-toggle="collapse"
+      data-bs-target="#hujum">
+      Hüjümden goranmagyň usullary
+    </button>
+
+    <div id="hujum" class="collapse">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, illo
+      vitae, quasi totam dolorum odit reprehenderit deleniti sit facilis
+      aperiam vero voluptate corrupti excepturi voluptatum minus vel.
+      Mollitia, tenetur odio?
+    </div>
+  </div>
+</div>
+</div>
+</main>
+
+<script>
+  function sendmessage() {
+    var text1 = document.getElementById("text1").value;
+    var file = document.getElementById("file");
+    var file1 = document.getElementById("file1");
+    var file2 = document.getElementById("file2");
+    var text2 = document.getElementById("text2");
+    var text3 = document.getElementById("text3");
+    text2.value = "";
+    text3.value = "";
+    var sifr = document.querySelector('input[name="sifr"]:checked');
+
+    let sifrlenen = "";
+    if (sifr.value == "https") {
+      sifrlenen = btoa(text1);
+      console.log(text1);
+    } else {
+      sifrlenen = text1;
+    }
+    file.style.display = "inline";
+
+    var initialLeft = parseInt(file.style.right) || 0;
+    var targetLeft = parseInt(text2.style.left) || 0;
+    var targetLeft = 1000;
+    initialLeft = 230;
+    var duration = 3000;
+    var startTime = null;
+    yokary = 0;
+
+    function animate(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = timestamp - startTime;
+      var percentage = Math.min(progress / duration, 1);
+
+      var newPosition = initialLeft + (targetLeft - initialLeft) * percentage;
+      if (newPosition >= 555) {
+        file2.style.display = "inline-block";
+        file2.classList.add("animated-file");
+      }
+
+      newPosition = parseInt(newPosition);
+
+      file.style.left = newPosition + "px";
+
+      if (percentage < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        text2.value = text1;
+        text3.value = sifrlenen;
+        file.style.left = newPosition + "px";
+        file.style.display = "none";
+        file2.style.display = "none";
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+</script>
+
+<hr />
+<!-- End #main -->
+
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+<!-- {% block title %} Baş sahypa {% endblock %}  -->
+{% load static %} {% block content %}
+    <main id="main">
+      <!-- ======= FeatPricingures Section ======= -->
+      <div class="hero-section inner-page">
+        <div class="wave">
+          <svg
+            width="1920px"
+            height="265px"
+            viewBox="0 0 1920 265"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              id="Page-1"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                id="Apple-TV"
+                transform="translate(0.000000, -402.000000)"
+                fill="#FFFFFF"
+              >
+                <path
+                  d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,667 L1017.15166,667 L0,667 L0,439.134243 Z"
+                  id="Path"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12">
+              <div class="row justify-content-center">
+                <div class="col-md-7 text-center hero-text">
+                  <h1 data-aos="fade-up" data-aos-delay="">Simulýator</h1>
+                  <p class="mb-5" data-aos="fade-up" data-aos-delay="100">
+                    Kiberhowpsuzlyk simulýatorlary
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-md-7 mb-5">
+              <h2 class="section-heading">Kiberhowpsuzlyk simulatorlary</h2>
+              <p>
+                Kiberhowpsuzlyk simulatorlaryny peýdalanyp bilersiňiz
+              </p>
+            </div>
+          </div>
+          <div class="row align-items-stretch">
+            
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="pricing h-100 text-center popular">
+               
+                <h3>MITM attack</h3>
+                <ul class="list-unstyled">
+                  <li>MITM (Man-in-the Middle), aragatnaşyk kanalyndaky maglumatlaryň 
+                    üçünji tarap tarapyndan gözegçilik edilýän ýa-da üýtgedilýän hüjüm 
+                    görnüşidir. Bu hüjüm, adatça, tordaky iki 
+                    aragatnaşygyň arasynda bolup geçýär we hüjümçi iki tarapyň 
+                    aragatnaşyga goşulýar.</li>
+                </ul>
+                <div class="price-cta">
+                  <strong class="price">MITM simulýator</strong>
+                  <p><a href="{% url 'mitm' %}" class="btn btn-white">Başlamak</a></p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="pricing h-100 text-center popular">
+                
+                <h3>ARP spoofing</h3>
+                <ul class="list-unstyled">
+                  <li>ARP bulaşdyrmak, tordaky ARP tablisasyny 
+                    bulaşdyrmak arkaly tor traffigine gözegçilik etmek ýa-da dolandyrmak 
+                    üçin ulanylýan hüjümiň bir görnüşidir. Hüjümiň bu görnüşinde hüjümçiler 
+                    tordaky beýleki enjamlary MAC salgylary bilen baglanyşdyrmak üçin bozulan 
+                    ARP jogaplaryny iberýärler. Şeýlelik bilen, hüjüm edýänler maksatly traffigi
+                     öz ulgamlaryna gönükdirip we şol traffige gözegçilik edip ýa-da üýtgedip 
+                     bilerler.</li>
+                  
+                </ul>
+                <div class="price-cta">
+                  <strong class="price">ARP spoofing simulator</strong>
+                  <p><a href="{% url 'arp' %}" class="btn btn-white">Başlamak</a></p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="pricing h-100 text-center popular">
+               
+                <h3>Switch</h3>
+                <ul class="list-unstyled">
+                  <li>Switch, tordaky her bir birikdirilen enjamyň biri-birine
+                     birikdirilen merkezi ýeridir. Kompýuterler, printerler, serwerler
+                      we beýleki ulgam enjamlary köplenç wyklýuçatellere birikdirilýär
+                    . Switch enjamdan maglumatlary alýar we haýsy porta belli bir
+                       ýere ugradyljakdygyny kesgitleýär.</li> 
+                </ul>
+                <div class="price-cta">
+                  <strong class="price">Switch simulýator</strong>
+                  <p><a href="{% url 'switch' %}" class="btn btn-white">Başlamak</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      
+    </main>
+    <hr>
+    <!-- End #main -->
+    {% endblock %}
+  </body>
+</html>
