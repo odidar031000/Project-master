@@ -8,6 +8,21 @@
     top: 120px;
     display: none;
   }
+  .animated-file {
+    display: none;
+    position: relative;
+    animation-name: slideDown;
+    animation-duration: 3s;
+  }
+
+  @keyframes slideDown {
+    from {
+      top: 75px;
+    }
+    to {
+      top: 500px;
+    }
+  }
 </style>
 
 <div style="background: rgb(42, 91, 145); height: 100px"></div>
@@ -25,10 +40,10 @@
           <p class="text-center"><b>Ulanyjy2</b></p>
           <img src="{% static 'assets/img/simulator/comp.png' %}" style="margin-left: 250px;"  alt="" />
           <div class="d-flex mt-3">
-            <input type="text" id="text2" class="form-control" readonly style="width: 200px;margin-left: 250px;"/>
-            <button class="btn btn-success p-2 mx-2">Send</button>
+            <!-- <input type="text" id="text2" class="form-control" readonly style="width: 200px;margin-left: 250px;"/>
+            <button class="btn btn-success p-2 mx-2">Send</button> -->
           </div>
-        </td>
+        </td> 
         <td></td>
       </tr>
 
@@ -97,9 +112,9 @@
         <td>
           <p class="text-center"><b>Ulanyjy3</b></p>
           <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
-          <div class="d-flex mt-3">
-            <input type="text" id="text2" class="form-control" readonly />
-            <button class="btn btn-success p-2 mx-2">Send</button>
+          <div class="d-flex mt-3" style="margin-bottom: 50px;">
+            <!-- <input type="text" id="text2" class="form-control" readonly />
+            <button class="btn btn-success p-2 mx-2">Send</button> -->
           </div>
         </td>
       </tr>
@@ -126,8 +141,8 @@
           <p class="text-center"><b>Ulanyjy4</b></p>
           <img src="{% static 'assets/img/simulator/comp.png' %}" style="margin-left: 250px;"  alt="" />
           <div class="d-flex mt-3">
-            <input type="text" id="text2" class="form-control" readonly style="width: 200px;margin-left: 250px;"/>
-            <button class="btn btn-success p-2 mx-2">Send</button>
+            <!-- <input type="text" id="text2" class="form-control" readonly style="width: 200px;margin-left: 250px;"/>
+            <button class="btn btn-success p-2 mx-2">Send</button> -->
           </div>
         </td>
         <td></td>

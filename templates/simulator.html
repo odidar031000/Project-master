@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 <!-- {% block title %} Baş sahypa {% endblock %}  -->
 {% load static %} {% block content %}
@@ -65,14 +66,22 @@
             <div class="col-lg-4 mb-4 mb-lg-0">
               <div class="pricing h-100 text-center popular">
                
-                <h3>MITM attack</h3>
+                <h3>MITM hüjümini</h3>
+                <ul class="list-unstyled">
+                 
+                  <div class="col-md-4 mb-3" style="width: 100%; margin-top: 30px;">
+                    <img
+                      class="img-fluid rounded"
+                      loading="lazy"
+                      src="{% static 'assets/img/MITM.jpg' %}"
+                      alt="" 
+                    />
+                  </div>
+          
               
-                    <img src="{% static 'C:\Users\212213\Desktop\Project-master\static\assets\img\MITM.jpg' %}" alt="" width="350" height="300">
-                
-                  
-                
+                </ul>
                 <div class="price-cta">
-                  <strong class="price">MITM simulýator</strong>
+                  <strong class="price">Öwrenmäge</strong>
                   <p><a href="{% url 'mitm' %}" class="btn btn-white">Başlamak</a></p>
                 </div>
               </div>
@@ -81,38 +90,55 @@
 
             <div class="col-lg-4 mb-4 mb-lg-0">
               <div class="pricing h-100 text-center popular">
-                
-                <h3>DoS attack</h3>
-                <img src="{% static 'C:\Users\212213\Desktop\Project-master\static\assets\img\DoS-Attack.jpeg' %}" alt="" width="350" height="300">
-                
+               
+                <h3>DoS hüjümini</h3>
+                <ul class="list-unstyled">
+                 
+                  <div class="col-md-4 mb-3" style="width: 100%; margin-top: 30px;">
+                    <img
+                      class="img-fluid rounded"
+                      loading="lazy"
+                      src="{% static 'assets/img/DoS-Attack.jpeg' %}"
+                      alt="" 
+                    />
+                  </div>
+          
+              
+                </ul>
                 <div class="price-cta">
-                  <strong class="price">Dos attack simulator</strong>
+                  <strong class="price">Öwrenmäge</strong>
                   <p><a href="{% url 'arp' %}" class="btn btn-white">Başlamak</a></p>
+                </div>
               </div>
             </div>
-
 
             <div class="col-lg-4 mb-4 mb-lg-0">
               <div class="pricing h-100 text-center popular">
                
-                <h3>Switch</h3>
-
-                <img src="{% static 'C:\Users\212213\Desktop\Project-master\static\assets\img\flooding.5d54d948.jpeg' %}" alt="" width="350" height="300">
-                
+                <h3>Mac Flooding hüjümini</h3>
+                <ul class="list-unstyled">
+                 
+                  <div class="col-md-4 mb-3" style="width: 100%; margin-top: 30px;">
+                    <img
+                      class="img-fluid rounded"
+                      loading="lazy"
+                      src="{% static 'assets/img/macspoofing.jpeg' %}"
+                      alt="" 
+                    />
+                  </div>
+          
+              
+                </ul>
                 <div class="price-cta">
-                  <strong class="price">Switch simulýator</strong>
+                  <strong class="price">Öwrenmäge</strong>
                   <p><a href="{% url 'switch' %}" class="btn btn-white">Başlamak</a></p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
       
       
     </main>
-    <hr>
     <!-- End #main -->
     {% endblock %}
   </body>

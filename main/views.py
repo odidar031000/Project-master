@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from . import models
 
@@ -6,6 +7,7 @@ def index(request):
 
 def cyber_categories(request):
     categories=models.CyberAttackCategories.objects.all()
+    
     context={
         'categories':categories
     }
@@ -53,22 +55,22 @@ def defense_categories(request):
     return render(request, 'defensecategories.html',context)
 
 def cyberdefense(request,id):
-    cyberattacks = models.CyberDefenseTools.objects.filter(category__id=id)
+    cyberdefense = models.CyberDefenseTools.objects.filter(category__id=id)
     
     context={
         'id':id,
-        'cyberattacks':cyberattacks
+        'cyberdefense':cyberdefense
     }
     
     return render(request, 'cyberdefnsetools.html',context)
 
 
 def defense_detail(request,category_id,id):
-    cyberattacks = models.CyberDefenseTools.objects.filter(category__id=category_id)
-    cyber_detail = models.CyberDefenseTools.objects.get(id=id)
+    cyberdefense = models.CyberDefenseTools.objects.filter(category__id=category_id)
+    defense_detail = models.CyberDefenseTools.objects.get(id=id)
     context={
-        'defense_detail':cyber_detail,
-        'cyberdefense':cyberattacks,
+        'defense_detail':defense_detail,
+        'cyberdefense':cyberdefense,
         'category_id':category_id
     }
     return render(request, 'defensedetail.html',context)
@@ -120,6 +122,7 @@ def books(request):
         'books':books
     }
     return render(request, 'books.html', context)
+
 
 def arp(request):
     return render(request, 'arp.html')
