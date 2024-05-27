@@ -8,48 +8,55 @@
     top: 120px;
     display: none;
   }
-  .animated-file {
+
+  #file3 {
+    position: absolute;
+    left: 80px;
+    top: 120px;
     display: none;
-    position: relative;
-    animation-name: slideDown;
-    animation-duration: 3s;
   }
 
-  @keyframes slideDown {
-    from {
-      top: 75px;
-    }
-    to {
-      top: 500px;
-    }
+  #file4 {
+    position: absolute;
+    left: 160px;
+    top: 120px;
+    display: none;
+  }
+
+  #file5 {
+    position: absolute;
+    left: 160px;
+    top: 120px;
+    display: none;
   }
 </style>
 
 <div style="background: rgb(42, 91, 145); height: 100px"></div>
 <main id="main" style="min-height: 700px">
-  <h1 class="text-center mt-4">Mitm simulýator</h1>
+  <h1 class="text-center mt-4">DoS attack simulýator</h1>
 
   <div class="container">
-    <label for="http" class="m-2">HTTP</label>
-    <input type="radio" value="http" id="http" checked name="sifr" />
-    <label for="https" class="m-2">HTTPS</label
-    ><input type="radio" id="https" value="https" name="sifr" />
+    <label for="ping" class="m-2">Ping 10.10.73.1</label>
+    <input type="radio" value="ping" id="ping" name="sifr" />
+    <label for="dos" class="m-2">DoS (ping 10.10.73.1 -t -5000)</label>
+    <input type="radio" id="dos" value="dos" name="sifr" />
   </div>
 
   <div class="container mt-5">
     <table>
       <tr>
         <td>
-          <p class="text-center"><b>Ulanyjy1</b></p>
+          <p class="text-center"><b>Ulanyjy</b></p>
           <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
-          <img
-            id="file"
-            src="{% static 'assets/img/simulator/file.png' %}"
-            alt="" />
+
+          <img id="file" src="{% static 'assets/img/simulator/file.png' %}" alt="" />
+          <img id="file3" src="{% static 'assets/img/simulator/file.png' %}" alt="" />
+          <img id="file4" src="{% static 'assets/img/simulator/file.png' %}" alt="" />
+          <img id="file5" src="{% static 'assets/img/simulator/file.png' %}" alt="" />
+
 
           <div class="d-flex mt-3">
-            <input type="text" id="text1" class="form-control" />
-            <button class="btn btn-success p-2 mx-2" onclick="sendmessage()">
+            <button class="btn btn-success p-2 mx-2" onclick="ping()">
               Ugrat
             </button>
           </div>
@@ -64,12 +71,8 @@
         </style>
 
         <td style="width: 100%">
-          <img
-            id="file2"
-            src="{% static 'assets/img/simulator/file.png' %}"
-            alt="" />
-          <div
-            style="
+          <img id="file2" src="{% static 'assets/img/simulator/file.png' %}" alt="" />
+          <div style="
               width: 100%;
               background: black;
               height: 1px;
@@ -77,142 +80,204 @@
             "></div>
         </td>
         <td>
-          <p class="text-center"><b>Ulanyjy2</b></p>
+          <p class="text-center"><b>Serwer (10.10.73.1)</b></p>
           <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
+          <div style="
+          margin-bottom: 75px;">
+
+          </div>
           <div class="d-flex mt-3">
-            <input type="text" id="text2" class="form-control" readonly />
-            <button class="btn btn-success p-2 mx-2">Send</button>
           </div>
         </td>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td style="width: 100%">
-          <div
-            style="
-              width: 1%;
-              background: black;
-              height: 200px;
-              margin-left: 375px;
-            "></div>
-        </td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td style="display: flex; justify-content: center; flex-wrap: wrap">
-          <p class="text-center" style="width: 100%"><b>Hacker</b></p>
-          <img
-            src="{% static 'assets/img/simulator/hacker.png' %}"
-            alt="" /><br />
-          <div
-            class="d-flex mt-3"
-            style="width: 100%; display: flex; justify-content: center">
-            <input
-              type="text"
-              id="text3"
-              class="form-control"
-              readonly
-              style="width: 30%" />
-          </div>
-        </td>
-        <td></td>
       </tr>
     </table>
   </div>
-  <div class="container mb-2">
+  <div class="container mb-2 mt-5">
     <div class="container mb-3">
-      <button
-        class="btn btn-success"
-        data-bs-toggle="collapse"
-        data-bs-target="#gorag">
+      <button class="btn btn-success" data-bs-toggle="collapse" data-bs-target="#gorag">
         Hüjümi amala aşyrmagyň usullary
       </button>
 
       <div id="gorag" class="collapse ">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, illo
-        vitae, quasi totam dolorum odit reprehenderit deleniti sit facilis
-        aperiam vero voluptate corrupti excepturi voluptatum minus vel.
-        Mollitia, tenetur odio?
+        Hyzmatdan ýüz öwürmek (DoS) hüjümi, 
+        zyýanly aktýoryň enjamyň kadaly işleýşine päsgel berip, 
+        kompýuter ýa-da başga enjamy niýetlenen ulanyjylara elýeterli 
+        etmezligi maksat edinýän kiber hüjümiň bir görnüşidir. 
+        DoS hüjümleri, adatça traffigi gaýtadan işläp bolýança, 
+        maksatly maşyny köpeltmek ýa-da doldurmak arkaly işleýär, 
+        netijede ulanyjylara hyzmat etmekden ýüz öwürýär. DoS hüjümi
+         hüjümi başlatmak üçin ýekeje kompýuter ulanmak bilen häsiýetlendirilýär.
       </div>
     </div>
- 
 
-  <div class="container mb-5">
-    <button
-      class="btn btn-success"
-      data-bs-toggle="collapse"
-      data-bs-target="#hujum">
-      Hüjümden goranmagyň usullary
-    </button>
 
-    <div id="hujum" class="collapse">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, illo
-      vitae, quasi totam dolorum odit reprehenderit deleniti sit facilis
-      aperiam vero voluptate corrupti excepturi voluptatum minus vel.
-      Mollitia, tenetur odio?
+    <div class="container mb-5">
+      <button class="btn btn-success" data-bs-toggle="collapse" data-bs-target="#hujum">
+        Hüjümden goranmagyň usullary
+      </button>
+
+      <div id="hujum" class="collapse">
+        Hyzmatdan ýüz öwürmek (DoS), göz öňünde tutulan ulanyjylara edilýän 
+        hyzmatlary ret etmek maksady bilen aýry-aýry kompýuterlere ýa-da web 
+        sahypasyna kiberhüjümdir. Olaryň maksady, ulanyjylaryna girmegi inkär edip,
+         bir guramanyň tor amallaryny bozmak. Hyzmatdan ýüz öwürmek, adatça ulgamlary
+          aşa köpeltmek we käbir ýa-da ähli kanuny islegleriň ýerine ýetirilmeginiň
+           öňüni almak maksady bilen maksatly enjamy ýa-da çeşmäni artykmaç haýyşlar
+            bilen doldurmak arkaly amala aşyrylýar. Mysal üçin, bank web sahypasy 
+            Giriş düwmesine basyp sekuntda 10 adamy dolandyryp bilýän bolsa, bir hüjümçi kanuny 
+            ulanyjylaryň girip bilmezligi üçin sekuntda 10 sany galp haýyş ibermeli. DoS hüjümleri 
+            kompýuter tor tehnologiýalarynyň dürli gowşak ýerlerinden peýdalanýar. . Serwerleri, tor 
+            marşrutizatorlaryny ýa-da tor aragatnaşygy baglanyşyklaryny nyşana alyp bilerler. 
+            Kompýuterleriň we marşrutizatorlaryň çökmegine we baglanyşyklaryň bozulmagyna sebäp bolup biler.
+             Iň meşhur DoS usuly, “Ping of Death”. “Ping of Death” hüjümi, olary kabul edýän ulgamlar 
+             üçin kynçylyk döredýän ýörite ulgam habarlaryny (hususan-da, standart däl ululykdaky ICMP paketleri)
+              döretmek we ibermek arkaly işleýär. Webiň ilkinji günlerinde bu hüjüm goralmadyk internet serwerleriniň 
+              çalt ýykylmagyna sebäp bolup biler. Beýan edilen ähli işleriňizi iş gurşawyňyzda däl-de, wirtual maşynlarda synap görmek maslahat berilýär. 
+      </div>
     </div>
   </div>
-</div>
-</div>
+  </div>
 </main>
 
 <script>
-  function sendmessage() {
-    var text1 = document.getElementById("text1").value;
-    var file = document.getElementById("file");
-    var file1 = document.getElementById("file1");
-    var file2 = document.getElementById("file2");
-    var text2 = document.getElementById("text2");
-    var text3 = document.getElementById("text3");
-    text2.value = "";
-    text3.value = "";
+  if (localStorage.getItem("state") == undefined) {
+    localStorage.setItem("state", "ping");
+  }
+
+  if (localStorage.getItem("state") === "ping") {
+    document.querySelector("input#ping").checked = true;
+  }
+
+  if (localStorage.getItem("state") === "dos") {
+    document.querySelector("input#dos").checked = true;
+  }
+
+  const sl = document.querySelectorAll('input[name="sifr"]');
+
+  for (let i = 0; i < sl.length; i++) {
+    sl[i].addEventListener("change", (e) => {
+      if (localStorage.getItem("state") !== e.target.value) {
+        localStorage.setItem("state", e.target.value);
+        window.location = window.location;
+      }
+    });
+  }
+
+
+  function ping() {
     var sifr = document.querySelector('input[name="sifr"]:checked');
 
-    let sifrlenen = "";
-    if (sifr.value == "https") {
-      sifrlenen = btoa(text1);
-      console.log(text1);
+    if (sifr.value == "ping") {
+      sendmessage();
     } else {
-      sifrlenen = text1;
+      sendmessage();
+      setInterval(function () {
+        sendmessage();
+      }, 3100);
     }
+  }
+
+
+
+  function sendmessage() {
+    var sifr = document.querySelector('input[name="sifr"]:checked');
+    var file = document.getElementById("file");
+    var file3 = document.getElementById("file3");
+    var file4 = document.getElementById("file4");
+    var file5 = document.getElementById("file5");
+
+
     file.style.display = "inline";
 
-    var initialLeft = parseInt(file.style.right) || 0;
-    var targetLeft = parseInt(text2.style.left) || 0;
-    var targetLeft = 1000;
-    initialLeft = 230;
+    if (sifr.value == "ping") {
+      file3.style.display = "inline";
+      file4.style.display = "inline";
+      file5.style.display = "inline";
+    } else if (sifr.value == "dos") {
+      file3.style.display = "inline";
+      file4.style.display = "inline";
+      file5.style.display = "inline";
+    }
+
+    var targetLeft = 1100;
+    var targetLeft3 = 1020;
+    var targetLeft4 = 950;
+    var targetLeft5 = 880;
+    var initialLeft = 230;
+    var initialLeft3 = 150;
+    var initialLeft4 = 80;
+    var initialLeft5 = 10;
     var duration = 3000;
     var startTime = null;
-    yokary = 0;
+
+    file.style.left = initialLeft + "px";
+    file3.style.left = initialLeft3 + "px";
+    file4.style.left = initialLeft4 + "px";
+    file5.style.left = initialLeft5 + "px";
+
 
     function animate(timestamp) {
       if (!startTime) startTime = timestamp;
       var progress = timestamp - startTime;
       var percentage = Math.min(progress / duration, 1);
-
       var newPosition = initialLeft + (targetLeft - initialLeft) * percentage;
-      if (newPosition >= 555) {
-        file2.style.display = "inline-block";
-        file2.classList.add("animated-file");
-      }
+      var newPosition3 = initialLeft3 + (targetLeft3 - initialLeft3) * percentage;
+      var newPosition4 = initialLeft4 + (targetLeft4 - initialLeft4) * percentage;
+      var newPosition5 = initialLeft5 + (targetLeft5 - initialLeft5) * percentage;
 
       newPosition = parseInt(newPosition);
+      newPosition3 = parseInt(newPosition3);
+      newPosition4 = parseInt(newPosition4);
+      newPosition5 = parseInt(newPosition5);
 
       file.style.left = newPosition + "px";
+      file3.style.left = newPosition3 + "px";
+      file4.style.left = newPosition4 + "px";
+      file5.style.left = newPosition5 + "px";
 
       if (percentage < 1) {
         requestAnimationFrame(animate);
       } else {
-        text2.value = text1;
-        text3.value = sifrlenen;
-        file.style.left = newPosition + "px";
-        file.style.display = "none";
-        file2.style.display = "none";
+
+      startTime = null; 
+      requestAnimationFrame(animateReturn);
       }
     }
+    
+  function animateReturn(timestamp) {
+    if (!startTime) startTime = timestamp;
+    var progress = timestamp - startTime;
+    var percentage = Math.min(progress / duration, 1);
+    var newPosition = targetLeft - (targetLeft - initialLeft) * percentage;
+    var newPosition3 = targetLeft3 - (targetLeft3 - initialLeft3) * percentage;
+    var newPosition4 = targetLeft4 - (targetLeft4 - initialLeft4) * percentage;
+    var newPosition5 = targetLeft5 - (targetLeft5 - initialLeft5) * percentage;
+
+    newPosition = parseInt(newPosition);
+    newPosition3 = parseInt(newPosition3);
+    newPosition4 = parseInt(newPosition4);
+    newPosition5 = parseInt(newPosition5);
+
+    file.style.left = newPosition + "px";
+    file3.style.left = newPosition3 + "px";
+    file4.style.left = newPosition4 + "px";
+    file5.style.left = newPosition5 + "px";
+
+    if (percentage < 1) {
+      requestAnimationFrame(animateReturn);
+    } else {
+      // Animation finished, files return back to initial position
+      file.style.left = initialLeft + "px";
+      file3.style.left = initialLeft3 + "px";
+      file4.style.left = initialLeft4 + "px";
+      file5.style.left = initialLeft5 + "px";
+      file.style.display = "none";
+      file3.style.display = "none";
+      file4.style.display = "none";
+      file5.style.display = "none";
+    }
+  }
+  
     requestAnimationFrame(animate);
   }
 </script>
