@@ -2,137 +2,202 @@
 <!-- {% block title %} Baş sahypa {% endblock %}  -->
 {% load static %} {% block content %}
 <style>
+  
   #file {
     position: absolute;
-    left: 120px;
-    top: 120px;
+    left: 200px;
+    top: 475px;
     display: none;
   }
 
-  #file3 {
-    position: absolute;
-    left: 80px;
-    top: 120px;
+  .animated-file {
     display: none;
+    position: relative;
+    animation-name: slideDown;
+    animation-duration: 2s;
   }
 
-  #file4 {
-    position: absolute;
-    left: 160px;
-    top: 120px;
+  .animated-file1 {
     display: none;
+    position: relative;
+    animation-name: slideUp;
+    animation-duration: 2s;
   }
 
-  #file5 {
-    position: absolute;
-    left: 160px;
-    top: 120px;
-    display: none;
+  
+
+  @keyframes slideDown {
+    from {
+      top:  850px;
+    }
+    to {
+      top:  475px;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      top: 100px;
+    }
+    to {
+      top: 475px;
+    }
   }
 </style>
 
 <div style="background: rgb(42, 91, 145); height: 100px"></div>
 <main id="main" style="min-height: 700px">
-  <h1 class="text-center mt-4">DoS attack simulýator</h1>
+  <h1 class="text-center mt-4">DDoS attack simulýator</h1>
+  <hr>
 
-  <div class="container">
-    <label for="ping" class="m-2">Ping 10.10.73.1</label>
-    <input type="radio" value="ping" id="ping" name="sifr" />
-    <label for="dos" class="m-2">DoS (ping 10.10.73.1 -t -5000)</label>
-    <input type="radio" id="dos" value="dos" name="sifr" />
-  </div>
+  <strong></strong>
 
   <div class="container mt-5">
     <table>
       <tr>
+        <td></td>
         <td>
-          <p class="text-center"><b>Ulanyjy</b></p>
+          <p style="margin-left: -50px;"><b>Ulanyjy1</b></p>
+          <img src="{% static 'assets/img/simulator/comp.png' %}" style="margin-left: -150px;" alt="" />
+          <div class="d-flex mt-3">
+
+          </div>
+        </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td style="width: 100%">
+          <div style="
+              width: 1%;
+              background: black;
+              height: 200px;
+              margin-left: 120px;
+              margin-bottom: -100px; 
+              transform: skew(35deg);
+            "></div>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <p class="text-center"><b>Hacker</b></p>
           <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
-
           <img id="file" src="{% static 'assets/img/simulator/file.png' %}" alt="" />
-          <img id="file3" src="{% static 'assets/img/simulator/file.png' %}" alt="" />
-          <img id="file4" src="{% static 'assets/img/simulator/file.png' %}" alt="" />
-          <img id="file5" src="{% static 'assets/img/simulator/file.png' %}" alt="" />
-
 
           <div class="d-flex mt-3">
-            <button class="btn btn-success p-2 mx-2" onclick="ping()">
+            
+            <button class="btn btn-success p-2 mx-2" onclick="sendmessage()">
               Ugrat
             </button>
           </div>
         </td>
         <style>
-          #file2 {
-            display: none;
+          #file3 {
             position: absolute;
-            margin-left: 26%;
-            margin-top: 40px;
+            margin-left: 17%;
+            margin-top: -80px;
+          }
+
+          #hub {
+            position: absolute;
+            margin-left: 24%;
+            margin-top: -125px;
+            font-size: 50px;
+            color: red;
+            z-index: 2;
           }
         </style>
 
         <td style="width: 100%">
-          <img id="file2" src="{% static 'assets/img/simulator/file.png' %}" alt="" />
+
           <div style="
               width: 100%;
               background: black;
               height: 1px;
               margin-top: 75px;
             "></div>
+          <p class="text-center" id="hub"><b>Switch</b></p>
+          <img
+              id="file3"
+              src="{% static 'assets/img/simulator/hub.png' %}"
+              alt="" 
+              width="300"/>
+          <style>
+            #file1, #file2{
+              position: absolute;
+              left: 620px;
+              top: 450px;
+              display: none;
+            }
+          </style>
+
+          <img id="file1" src="{% static 'assets/img/simulator/file.png' %}" alt="" width="75" />
+          <img id="file2" src="{% static 'assets/img/simulator/file.png' %}" alt="" width="75" />
         </td>
         <td>
-          <p class="text-center"><b>Serwer (10.10.73.1)</b></p>
+          <p class="text-center"><b>Serwer</b></p>
           <img src="{% static 'assets/img/simulator/comp.png' %}" alt="" />
-          <div style="
-          margin-bottom: 75px;">
+          <div class="d-flex mt-3" style="margin-bottom: 50px;">
+           
+        </td>
+      </tr>
 
-          </div>
+      <tr>
+        <td></td>
+        <td style="width: 100%">
+          <div style="
+              width: 1%;
+              background: black;
+              height: 200px;
+              margin-left: 120px;
+              transform: skew(-35deg);
+            "></div>
+        </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>
+          <p style="margin-left: -50;"><b>Ulanyjy2</b></p>
+          <img src="{% static 'assets/img/simulator/comp.png' %}" style="margin-left: -150px;" alt="" />
           <div class="d-flex mt-3">
+            
           </div>
         </td>
+        <td></td>
       </tr>
     </table>
   </div>
-  <div class="container mb-2 mt-5">
+  <div class="container my-5">
     <div class="container mb-3">
       <button class="btn btn-success" data-bs-toggle="collapse" data-bs-target="#gorag">
         Hüjümi amala aşyrmagyň usullary
       </button>
 
       <div id="gorag" class="collapse ">
-        Hyzmatdan ýüz öwürmek (DoS) hüjümi, 
-        zyýanly aktýoryň enjamyň kadaly işleýşine päsgel berip, 
-        kompýuter ýa-da başga enjamy niýetlenen ulanyjylara elýeterli 
-        etmezligi maksat edinýän kiber hüjümiň bir görnüşidir. 
-        DoS hüjümleri, adatça traffigi gaýtadan işläp bolýança, 
-        maksatly maşyny köpeltmek ýa-da doldurmak arkaly işleýär, 
-        netijede ulanyjylara hyzmat etmekden ýüz öwürýär. DoS hüjümi
-         hüjümi başlatmak üçin ýekeje kompýuter ulanmak bilen häsiýetlendirilýär.
+        MAC flooding mediýa giriş gözegçiliginiň (MAC) 
+        salgylaryndan peýdalanýar. Her enjamyň MAC salgysy bar, 
+        bu enjamy toruň içinde kesgitlemek üçin ulanylýan özboluşly san belgisi. 
+        Tordaky enjamlaryň arasynda maglumat iberilende, wyklýuçatel diýilýän ulgamdan geçýär. 
+        Wyklýuçatel maglumat paketlerini alýan we torundaky dogry enjama geçirýän görnüşleriň bir görnüşi hökmünde işleýär.
       </div>
     </div>
 
 
-    <div class="container mb-5">
+    <div class="container mb-5 ">
       <button class="btn btn-success" data-bs-toggle="collapse" data-bs-target="#hujum">
         Hüjümden goranmagyň usullary
       </button>
 
       <div id="hujum" class="collapse">
-        Hyzmatdan ýüz öwürmek (DoS), göz öňünde tutulan ulanyjylara edilýän 
-        hyzmatlary ret etmek maksady bilen aýry-aýry kompýuterlere ýa-da web 
-        sahypasyna kiberhüjümdir. Olaryň maksady, ulanyjylaryna girmegi inkär edip,
-         bir guramanyň tor amallaryny bozmak. Hyzmatdan ýüz öwürmek, adatça ulgamlary
-          aşa köpeltmek we käbir ýa-da ähli kanuny islegleriň ýerine ýetirilmeginiň
-           öňüni almak maksady bilen maksatly enjamy ýa-da çeşmäni artykmaç haýyşlar
-            bilen doldurmak arkaly amala aşyrylýar. Mysal üçin, bank web sahypasy 
-            Giriş düwmesine basyp sekuntda 10 adamy dolandyryp bilýän bolsa, bir hüjümçi kanuny 
-            ulanyjylaryň girip bilmezligi üçin sekuntda 10 sany galp haýyş ibermeli. DoS hüjümleri 
-            kompýuter tor tehnologiýalarynyň dürli gowşak ýerlerinden peýdalanýar. . Serwerleri, tor 
-            marşrutizatorlaryny ýa-da tor aragatnaşygy baglanyşyklaryny nyşana alyp bilerler. 
-            Kompýuterleriň we marşrutizatorlaryň çökmegine we baglanyşyklaryň bozulmagyna sebäp bolup biler.
-             Iň meşhur DoS usuly, “Ping of Death”. “Ping of Death” hüjümi, olary kabul edýän ulgamlar 
-             üçin kynçylyk döredýän ýörite ulgam habarlaryny (hususan-da, standart däl ululykdaky ICMP paketleri)
-              döretmek we ibermek arkaly işleýär. Webiň ilkinji günlerinde bu hüjüm goralmadyk internet serwerleriniň 
-              çalt ýykylmagyna sebäp bolup biler. Beýan edilen ähli işleriňizi iş gurşawyňyzda däl-de, wirtual maşynlarda synap görmek maslahat berilýär. 
+        MAC flooding öňüni almak üçin kiberhowpsuzlygyň iki ugruna üns bermeli: öňüni almak we gözegçilik.
+
+Öňüni almak. Bu hüjümleriň ilki bilen ýüze çykmagynyň öňüni almak üçin, tor wyklýuçateliňiz üçin port howpsuzlygyny düzüň. Bu, wyklýuçateliň MAC salgy tablisasyna ýazylan täze MAC salgylaryny alyp bilýän enjamlary çäklendirýär. Şeýle hem, toruňyzy goramak üçin güýçli parollary ulanmagy unutmaň , sebäbi hüjümçi enjam hüjüme başlamazdan ozal tora birikmeli.
+Gözegçilik. Hüjüm alamatlary üçin toruňyza yzygiderli gözegçilik etmeli. Performancearamaz öndürijilik we tor trafigindäki ýokarlanmalar ýaly görkezijiler duýduryş alamatlary bolup bilse-de, tor gözegçilik programma üpjünçiligi el bilen çemeleşmek bilen sypdyryp boljak inçe töwekgelçilik görkezijilerini alyp biler. Şeýle hem, toruňyza birikýän enjamlara gözegçilik etmeli we ol ýerde bolmaly däl ýa-da geň hereket edýän zatlary aýyrmaly.
+Goşmaça çäre hökmünde tor dolandyryjylary, tor goraglaryny barlamak üçin etiki hakerler diýlip hem atlandyrylýan aralaşmak synaglaryny ulanmagy göz öňünde tutmalydyrlar . Bu hünärmen howpsuzlyk hünärmenleri, gowşak taraplary erbet aktýorlar tapmazdan ozal ýüze çykarmak üçin gowşak taraplary paş edýärler.
       </div>
     </div>
   </div>
@@ -140,144 +205,52 @@
 </main>
 
 <script>
-  if (localStorage.getItem("state") == undefined) {
-    localStorage.setItem("state", "ping");
-  }
-
-  if (localStorage.getItem("state") === "ping") {
-    document.querySelector("input#ping").checked = true;
-  }
-
-  if (localStorage.getItem("state") === "dos") {
-    document.querySelector("input#dos").checked = true;
-  }
-
-  const sl = document.querySelectorAll('input[name="sifr"]');
-
-  for (let i = 0; i < sl.length; i++) {
-    sl[i].addEventListener("change", (e) => {
-      if (localStorage.getItem("state") !== e.target.value) {
-        localStorage.setItem("state", e.target.value);
-        window.location = window.location;
-      }
-    });
-  }
-
-
-  function ping() {
-    var sifr = document.querySelector('input[name="sifr"]:checked');
-
-    if (sifr.value == "ping") {
-      sendmessage();
-    } else {
-      sendmessage();
-      setInterval(function () {
-        sendmessage();
-      }, 3100);
-    }
-  }
-
 
 
   function sendmessage() {
-    var sifr = document.querySelector('input[name="sifr"]:checked');
     var file = document.getElementById("file");
-    var file3 = document.getElementById("file3");
-    var file4 = document.getElementById("file4");
-    var file5 = document.getElementById("file5");
-
-
+    var file1 = document.getElementById("file1");
+    var file2 = document.getElementById("file2");
     file.style.display = "inline";
 
-    if (sifr.value == "ping") {
-      file3.style.display = "inline";
-      file4.style.display = "inline";
-      file5.style.display = "inline";
-    } else if (sifr.value == "dos") {
-      file3.style.display = "inline";
-      file4.style.display = "inline";
-      file5.style.display = "inline";
-    }
 
-    var targetLeft = 1100;
-    var targetLeft3 = 1020;
-    var targetLeft4 = 950;
-    var targetLeft5 = 880;
-    var initialLeft = 230;
-    var initialLeft3 = 150;
-    var initialLeft4 = 80;
-    var initialLeft5 = 10;
+
+    var initialLeft = parseInt(file.style.right) || 0;
+
+    var targetLeft = 1000;
+    initialLeft = 230;
     var duration = 3000;
     var startTime = null;
-
-    file.style.left = initialLeft + "px";
-    file3.style.left = initialLeft3 + "px";
-    file4.style.left = initialLeft4 + "px";
-    file5.style.left = initialLeft5 + "px";
-
+    yokary = 0;
 
     function animate(timestamp) {
       if (!startTime) startTime = timestamp;
       var progress = timestamp - startTime;
       var percentage = Math.min(progress / duration, 1);
+
       var newPosition = initialLeft + (targetLeft - initialLeft) * percentage;
-      var newPosition3 = initialLeft3 + (targetLeft3 - initialLeft3) * percentage;
-      var newPosition4 = initialLeft4 + (targetLeft4 - initialLeft4) * percentage;
-      var newPosition5 = initialLeft5 + (targetLeft5 - initialLeft5) * percentage;
+      if (newPosition >= 100) {
+        file2.style.display = "inline-block";
+        file1.style.display = "inline-block";
+        file1.classList.add("animated-file");
+        file2.classList.add("animated-file1");
+      }
 
       newPosition = parseInt(newPosition);
-      newPosition3 = parseInt(newPosition3);
-      newPosition4 = parseInt(newPosition4);
-      newPosition5 = parseInt(newPosition5);
 
       file.style.left = newPosition + "px";
-      file3.style.left = newPosition3 + "px";
-      file4.style.left = newPosition4 + "px";
-      file5.style.left = newPosition5 + "px";
+      file1.style.left = newPosition + "px";
+      file2.style.left = newPosition + "px";
 
       if (percentage < 1) {
         requestAnimationFrame(animate);
       } else {
-
-      startTime = null; 
-      requestAnimationFrame(animateReturn);
+        file.style.left = newPosition + "px";
+        file.style.display = "none";
+        file1.style.display = "none";
+        file2.style.display = "none";
       }
     }
-    
-  function animateReturn(timestamp) {
-    if (!startTime) startTime = timestamp;
-    var progress = timestamp - startTime;
-    var percentage = Math.min(progress / duration, 1);
-    var newPosition = targetLeft - (targetLeft - initialLeft) * percentage;
-    var newPosition3 = targetLeft3 - (targetLeft3 - initialLeft3) * percentage;
-    var newPosition4 = targetLeft4 - (targetLeft4 - initialLeft4) * percentage;
-    var newPosition5 = targetLeft5 - (targetLeft5 - initialLeft5) * percentage;
-
-    newPosition = parseInt(newPosition);
-    newPosition3 = parseInt(newPosition3);
-    newPosition4 = parseInt(newPosition4);
-    newPosition5 = parseInt(newPosition5);
-
-    file.style.left = newPosition + "px";
-    file3.style.left = newPosition3 + "px";
-    file4.style.left = newPosition4 + "px";
-    file5.style.left = newPosition5 + "px";
-
-    if (percentage < 1) {
-      requestAnimationFrame(animateReturn);
-    } else {
-      // Animation finished, files return back to initial position
-      file.style.left = initialLeft + "px";
-      file3.style.left = initialLeft3 + "px";
-      file4.style.left = initialLeft4 + "px";
-      file5.style.left = initialLeft5 + "px";
-      file.style.display = "none";
-      file3.style.display = "none";
-      file4.style.display = "none";
-      file5.style.display = "none";
-    }
-  }
-  
     requestAnimationFrame(animate);
   }
 </script>
